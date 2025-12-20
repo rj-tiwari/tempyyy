@@ -221,8 +221,8 @@
               {% endfor %}
             </div>
             <div class="actions" aria-label="Notebook actions">
-              {% if item.app_link %}
-              <a class="btn btn--primary" href="{{ item.app_link }}">
+              {% if item.app_link or (item.type == 'app' and item.html_path) %}
+              <a class="btn btn--primary" href="{{ item.app_link | default(item.html_path) }}">
                 <svg class="icon" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 4.5v11l11-5.5-11-5.5Z"/></svg>
                 <span>Open App</span>
               </a>
